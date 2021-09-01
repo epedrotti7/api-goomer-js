@@ -1,0 +1,23 @@
+
+version: "3"
+services: 
+  mysql:
+    container_name: mysql_goomer
+    hostname: mysql_goomer
+    image: mysql
+    restart: always
+    command:
+      - --default-authentication-plugin=mysql_native_password
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --innodb_force_recovery=0
+    volumes: 
+      - ~/.MySQLDBData/mysqlonly/mysql_goomer:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: goomer
+      MYSQL_DATABASE: goomer
+      MYSQL_USER: goomer
+      MYSQL_PASSWORD: goomer
+      TZ: America/Sao_Paulo
